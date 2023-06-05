@@ -11,6 +11,8 @@ class User < ApplicationRecord
   # :validatable（email のフォーマットなどのバリデーション）
   
   has_many :post_images, dependent: :destroy
+  has_many :post_comments, dependent: :destroy
+  has_many :favorites, dependent: :destroy
   # has_many=たくさん持っているという考え方
   # 「1:N」の「1」側にあたるモデルにhas_manyを記載する必要がある
   # 「dependent: :destroy」という記述があると「1:Nの1側が削除されたとき、N側を全て削除する」という機能が追加される。
